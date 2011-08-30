@@ -5,11 +5,11 @@
  */
 
 // Load Hybrid core theme framework.
-require_once( trailingslashit( TEMPLATEPATH ) . 'libraries/hybrid-core/hybrid.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'hybrid-core/hybrid.php' );
 $theme = new Hybrid();
 
 // Load the core functions
-require_once( trailingslashit( TEMPLATEPATH ) . 'functions/core.php' );
+require_once( trailingslashit( TEMPLATEPATH ) . 'functions/main.php' );
 
 // Load the admin-only functions
 if (is_admin()) {
