@@ -1,35 +1,28 @@
 <?php
 /**
- * Post Template: No Widgets
- *
- * A post template to use when wanting to disable all widget areas for an individual post.
- *
- * @package Hybrid
- * @subpackage Template
+ * Post Template: Default Post
  */
 
 get_header(); // Loads the header.php template. ?>
 
 	<div id="content" class="hfeed content">
 
-		<?php do_atomic( 'before_content' ); // hybrid_before_content ?>
+		<?php do_atomic( 'breadcrumb' ); // breadcrumb trail ?>
 
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 			<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 
-				<?php do_atomic( 'before_entry' ); // hybrid_before_entry ?>
+				<?php do_atomic( 'entry_header' ); ?>
 
 				<div class="entry-content">
 					<?php the_content(); ?>
 					<?php wp_link_pages( array( 'before' => '<p class="page-links pages">' . __( 'Pages:', hybrid_get_textdomain() ), 'after' => '</p>' ) ); ?>
 				</div><!-- .entry-content -->
 
-				<?php do_atomic( 'after_entry' ); // hybrid_after_entry ?>
+				<?php do_atomic( 'entry_footer' ); ?>
 
 			</div><!-- .hentry -->
-
-			<?php do_atomic( 'after_singular' ); // hybrid_after_singular ?>
 
 			<?php comments_template( '/comments.php', true ); // Loads the comments.php template ?>
 
@@ -41,7 +34,7 @@ get_header(); // Loads the header.php template. ?>
 
 		<?php endif; ?>
 
-		<?php do_atomic( 'after_content' ); // hybrid_after_content ?>
+		<?php do_atomic( 'nagivation_links' ); ?>
 
 	</div><!-- .content .hfeed -->
 
