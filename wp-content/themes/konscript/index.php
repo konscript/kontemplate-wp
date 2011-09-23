@@ -23,6 +23,8 @@ get_header(); // Loads the header.php template. ?>
 					<?php wp_link_pages( array( 'before' => '<p class="page-links pages">' . __( 'Pages:', hybrid_get_textdomain() ), 'after' => '</p>' ) ); ?>
 				</div><!-- .entry-content -->
 
+				<?php do_atomic( 'entry_footer' ); ?>
+
 			</div><!-- .hentry -->
 
 			<?php if ( is_singular() ) { ?>
@@ -38,6 +40,8 @@ get_header(); // Loads the header.php template. ?>
 			<?php get_template_part( 'loop-error' ); // Loads the loop-error.php template. ?>
 
 		<?php endif; ?>
+
+		<?php get_template_part( 'loop-nav' ); ?>
 
 	</div><!-- .content .hfeed -->
 

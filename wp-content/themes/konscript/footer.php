@@ -9,11 +9,16 @@
  */
 ?>
 
-	<?php do_atomic( 'sidebar_primary' ); ?>
+	<?php get_sidebar( 'primary' ); ?>
 
 	</div><!-- #container -->
 	<div id="footer-container">
 		<div id="footer">
+			<?php
+			$footer_insert = hybrid_get_setting( 'footer_insert' );
+			if ( !empty( $footer_insert ) )
+				echo '<div class="footer-insert">' . do_shortcode( $footer_insert ) . '</div>';
+			?>
 		</div><!-- #footer -->
 	</div><!-- #footer-container -->
 </div><!-- #body-container -->

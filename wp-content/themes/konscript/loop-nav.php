@@ -5,9 +5,6 @@
  * This template is used to show your your next/previous post links on singular pages and
  * the next/previous posts links on the home/posts page and archive pages. It also integrates
  * with the WP PageNavi plugin if activated.
- *
- * @package Hybrid
- * @subpackage Template
  */
 ?>
 

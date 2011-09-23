@@ -9,7 +9,7 @@
 
 if ( is_active_sidebar( 'primary' ) ) : ?>
 
-	<div id="primary" class="sidebar aside">
+	<div id="sidebar-primary" class="sidebar aside">
 		<?php dynamic_sidebar( 'primary' ); ?>
 	</div><!-- #primary .aside -->
 

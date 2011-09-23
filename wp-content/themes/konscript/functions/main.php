@@ -48,18 +48,12 @@ function hybrid_theme_setup_theme() {
 	/* Register sidebars. */
 	add_action( 'init', 'hybrid_theme_register_sidebars', 11 );
 
-	/* Disables widget areas. */
-	add_filter( 'sidebars_widgets', 'hybrid_theme_remove_sidebars' );
-
 	/* Header actions. */
-	add_action( "{$prefix}_header", 'hybrid_site_title' );
-	add_action( "{$prefix}_header", 'hybrid_site_description' );
-
-	/* Load the primary menu. */
-	add_action( "{$prefix}_menu_primary", 'hybrid_menu_primary' );
+	add_action( "{$prefix}_header", 'site_title' );
+	add_action( "{$prefix}_header", 'site_description' );
 
 	/* Add the primary and secondary sidebars after the container. */
-	add_action( "{$prefix}_sidebar_primary", 'hybrid_sidebar_primary' );
+	add_action( "{$prefix}_sidebar_primary", 'sidebar_primary' );
 
 	/* Add the breadcrumb trail and before content sidebar before the content. */
 	add_action( "{$prefix}_breadcrumb", 'hybrid_breadcrumb' );
@@ -70,10 +64,10 @@ function hybrid_theme_setup_theme() {
 	add_action( "{$prefix}_entry_footer", 'hybrid_entry_meta' );
 
 	/* Add the after content sidebar and navigation links after the content. */
-	add_action( "{$prefix}_navigation_links", 'hybrid_navigation_links' );
+	add_action( "{$prefix}_blog_footer", 'navigation_links' );
 
 	/* Add the subsidiary sidebar and footer insert to the footer. */
-	add_action( "{$prefix}_footer", 'hybrid_footer_insert' );
+	add_action( "{$prefix}_footer", 'footer_insert' );
 
 	/* Add the comment avatar and comment meta before individual comments. */
 	add_action( "{$prefix}_before_comment", 'hybrid_avatar' );
@@ -194,14 +188,15 @@ function hybrid_comment_meta() {
  * Loads the loop-nav.php template with backwards compability for navigation-links.php.
  * @uses locate_template() Checks for template in child and parent theme.
  */
-function hybrid_navigation_links() {
-	locate_template( array( 'navigation-links.php', 'loop-nav.php' ), true );
+function navigation_links() {
+	get_template_part( 'loop', 'nav' );
+	//locate_template( array( 'navigation-links.php', 'loop-nav.php' ), true );
 }
 
 /**
  * Displays the footer insert from the theme settings page.
  */
-function hybrid_footer_insert() {
+function footer_insert() {
 	$footer_insert = hybrid_get_setting( 'footer_insert' );
 
 	if ( !empty( $footer_insert ) )
@@ -209,37 +204,30 @@ function hybrid_footer_insert() {
 }
 
 /**
- * Removes all widget areas on the No Widgets page/post template.  No widget templates should come in
- * the form of $post_type-no-widgets.php.  This function also provides backwards compatibility with the old
- * no-widgets.php template.
+ * Dynamic element to wrap the site title in.  If it is the front page, wrap it in an <h1> element.  On other 
+ * pages, wrap it in a <div> element. 
  */
-function hybrid_theme_remove_sidebars( $sidebars_widgets ) {
-	global $wp_query;
+function site_title() {
+	$tag = ( is_front_page() ) ? 'h1' : 'div';
 
-	if ( is_singular() ) {
-		$template = get_post_meta( $wp_query->post->ID, "_wp_{$wp_query->post->post_type}_template", true );
+	if ( $title = get_bloginfo( 'name' ) )
+		$title = '<' . $tag . ' id="site-title"><a href="' . home_url() . '" title="' . esc_attr( $title ) . '" rel="home"><span>' . $title . '</span></a></' . $tag . '>';
 
-		if ( 'no-widgets.php' == $template || "{$wp_query->post->post_type}-no-widgets.php" == $template )
-			$sidebars_widgets = array( false );
-	}
-
-	return $sidebars_widgets;
+	echo apply_atomic( 'site_title', $title );
 }
 
 /**
- * Loads the sidebar-primary.php template.
- * @uses get_sidebar() Checks for the template in the child and parent theme.
+ * Dynamic element to wrap the site description in.  If it is the front page, wrap it in an <h2> element.  
+ * On other pages, wrap it in a <div> element.
  */
-function hybrid_sidebar_primary() {
-	get_sidebar( 'primary' );
+function site_description() {
+	$tag = ( is_front_page() ) ? 'h2' : 'div';
+
+	if ( $desc = get_bloginfo( 'description' ) )
+		$desc = "\n\t\t\t" . '<' . $tag . ' id="site-description"><span>' . $desc . '</span></' . $tag . '>' . "\n";
+
+	echo apply_atomic( 'site_description', $desc );
 }
 
-/**
- * Loads the menu-primary.php template.
- * @uses get_template_part() Checks for template in child and parent theme.
- */
-function hybrid_menu_primary() {
-	get_template_part( 'menu', 'primary' );
-}
 
 ?>
