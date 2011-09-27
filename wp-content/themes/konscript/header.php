@@ -22,9 +22,9 @@
 	<?php wp_head(); // wp_head ?>
 	
 </head>
-<body class="<?php hybrid_body_class(); ?>">
+<body class="bp <?php hybrid_body_class(); ?>">
 
-	<div id="body-container">
+	<div id="body-wrapper">
 		<div id="header-container">
 			<div id="header">
 				<?php do_atomic( 'header' ); // hybrid_header ?>
