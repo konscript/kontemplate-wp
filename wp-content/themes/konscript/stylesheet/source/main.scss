@@ -24,7 +24,9 @@ form.bp {
 
 // Contains everything
 body {}
-	#body-wrapper {}
+	#body-wrapper {
+		@include container;
+	}
 
 /**
  * 2. Header
