@@ -6,32 +6,28 @@ For rapid theme development for WordPress, Kontemplate WP provides a rich boiler
 
 The source files can be found at [github.com/konscript/kontemplate-wp](http://github.com/konscript/kontemplate-wp)
 
+**Learn more in other/KONTEMPLATE.md**
+
 ## Toolchain
 
-Out-of-the-box tools and configurations include:
+Out-of-the-box theme tools and configurations include:
 
-* [Hybrid Core](http://themehybrid.com/hybrid-core)
+* [Hybrid Core](http://themehybrid.com/hybrid-core) (theme development toolset that provides many useful functions and shortcuts)
 
-	(theme development toolset that provides many useful functions and shortcuts)
+* [Compass](http://compass-style.org) (stylesheet framework to that links blueprint and css3 utils in sass)
 
-* [Compass](http://compass-style.org)
-	
-	(stylesheet framework to that links blueprint and css3 utils in sass)
+* [Sass/SCSS](http://sass-lang.com) (extension to css that adds nested rules, variables, mixins, selector inheritance and more)
 
-* [Sass/SCSS](http://sass-lang.com)
+* [Blueprint](http://blueprintcss.org) (css framework that, primarily, provides a solid grid-based layout)
 
-	(extension to css that adds nested rules, variables, mixins, selector inheritance and more)
+* Dummy WP content (various dummy content that can be imported into WP)
 
-* [Blueprint](http://blueprintcss.org)
+* Git Ignore (.gitignore that disregard WP core files and alike for Git management)
 
-	(css framework that, primarily, provides a solid grid-based layout)
-
-* Dummy WP content
-
-	(various dummy content that can be imported into WP)
+**Usage and details in other/TOOLCHAIN.md**
 
 ## Plugins
 
-There's a wide array of useful CMS-enabling plugins for WordPress. Below is a list of different ones, categorized under subject or area:
+There's a wide array of useful CMS-enabling plugins for WordPress.
 
-*N/A for now*
+**Categorized list in other/PLUGINS.md**
