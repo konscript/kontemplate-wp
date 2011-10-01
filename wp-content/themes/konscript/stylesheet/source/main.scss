@@ -2,7 +2,8 @@
  * Main (main.scss)
  */
 
-// Load the base
+// Load the WP defaults and base
+@import "_wordpress";
 @import "_base";
 
 // Default blueprint setup on the body

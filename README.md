@@ -6,8 +6,6 @@ For rapid theme development for WordPress, Kontemplate WP provides a rich boiler
 
 The source files can be found at [github.com/konscript/kontemplate-wp](http://github.com/konscript/kontemplate-wp)
 
-**Learn more in other/KONTEMPLATE.md**
-
 ## Toolchain
 
 Out-of-the-box theme tools and configurations include:
@@ -24,10 +22,7 @@ Out-of-the-box theme tools and configurations include:
 
 * Git Ignore (.gitignore that disregard WP core files and alike for Git management)
 
-**Usage and details in other/TOOLCHAIN.md**
-
 ## Plugins
 
-There's a wide array of useful CMS-enabling plugins for WordPress.
-
-**Categorized list in other/PLUGINS.md**
+There's a wide array of useful CMS-enabling plugins for WordPress. 
+(Section is WIP)
