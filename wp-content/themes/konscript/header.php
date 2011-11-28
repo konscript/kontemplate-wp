@@ -31,7 +31,6 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 	
 	<!-- CSS: implied media=all -->
-	<!-- CSS concatenated and minified via ant build script-->
   <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/stylesheet/compiled/main.css">
   <!-- end CSS-->
 	
